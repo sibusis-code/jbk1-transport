@@ -100,12 +100,13 @@ nav a:hover {
 }
 main {
     max-width: 1000px;
-    margin: 6rem auto 2rem auto;
-    padding: 1rem;
+    /* Reduced top margin so hero sits closer to fixed header */
+    margin: 4rem auto 2rem auto;
+    padding: 1rem 1rem 1rem 1rem;
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    padding-top: 110px; /* Prevent header overlap */
+    padding-top: 20px; /* small buffer under header */
 }
 section {
     padding: 3rem 2rem;

@@ -3,6 +3,9 @@ document.querySelector('.hamburger')?.addEventListener('click', function() {
     const navList = document.querySelector('nav .nav-links');
     if (navList) navList.classList.toggle('open');
     this.classList.toggle('open');
+    // update aria-expanded for accessibility
+    const expanded = this.classList.contains('open');
+    this.setAttribute('aria-expanded', expanded ? 'true' : 'false');
 });
 
 // Close mobile menu when a nav link is clicked
@@ -11,7 +14,10 @@ document.querySelectorAll('nav .nav-links a').forEach(link => {
         const navList = document.querySelector('nav .nav-links');
         const hamburger = document.querySelector('.hamburger');
         if (navList && navList.classList.contains('open')) navList.classList.remove('open');
-        if (hamburger && hamburger.classList.contains('open')) hamburger.classList.remove('open');
+        if (hamburger && hamburger.classList.contains('open')) {
+            hamburger.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
+        }
     });
 });
 

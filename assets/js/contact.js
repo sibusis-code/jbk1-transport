@@ -1,6 +1,7 @@
 // Hamburger menu toggle
 document.querySelector('.hamburger')?.addEventListener('click', function() {
-    document.querySelector('nav ul').classList.toggle('open');
+    const navList = document.querySelector('nav .nav-links');
+    if (navList) navList.classList.toggle('open');
     this.classList.toggle('open');
 });
 

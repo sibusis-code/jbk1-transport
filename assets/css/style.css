@@ -517,10 +517,21 @@ footer a:hover {
     }
 }
 @media (max-width: 768px) {
+    .navbar-container {
+        position: relative;
+    }
     .hamburger {
         display: flex;
+        position: absolute;
+        right: 1.25rem;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1100;
     }
-    nav ul {
+
+    /* Mobile nav dropdown (hidden by default) */
+    .nav-links {
+        display: none;
         position: absolute;
         top: 100%;
         left: 0;
@@ -529,19 +540,8 @@ footer a:hover {
         flex-direction: column;
         gap: 0;
         padding: 1rem 0;
-        display: none;
         box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-    nav ul.open {
-        display: flex;
-    }
-
-    /* Ensure .nav-links open state is also handled */
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        gap: 0;
-        width: 100%;
+        z-index: 1050;
     }
     .nav-links.open {
         display: flex;

@@ -5,6 +5,16 @@ document.querySelector('.hamburger')?.addEventListener('click', function() {
     this.classList.toggle('open');
 });
 
+// Close mobile menu when a nav link is clicked
+document.querySelectorAll('nav .nav-links a').forEach(link => {
+    link.addEventListener('click', function() {
+        const navList = document.querySelector('nav .nav-links');
+        const hamburger = document.querySelector('.hamburger');
+        if (navList && navList.classList.contains('open')) navList.classList.remove('open');
+        if (hamburger && hamburger.classList.contains('open')) hamburger.classList.remove('open');
+    });
+});
+
 // Back to top button
 window.addEventListener('scroll', function() {
     const backToTop = document.getElementById('back-to-top');

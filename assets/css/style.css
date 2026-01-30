@@ -73,6 +73,15 @@ nav a:hover, .nav-links li.active a {
     cursor: pointer;
     padding: 0.5rem;
 }
+.hamburger span {
+    display: block;
+    width: 26px;
+    height: 3px;
+    background: #fff;
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: transform 0.2s, opacity 0.2s;
+}
 .hamburger.open span:nth-child(1) {
     transform: rotate(-45deg) translate(-5px, 5px);
 }
@@ -427,6 +436,23 @@ footer {
     gap: 1rem;
     justify-content: center;
 }
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: inherit;
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    transition: background 0.15s, color 0.15s;
+}
+.social-link svg {
+    width: 20px;
+    height: 20px;
+}
+.social-link:hover {
+    background: rgba(255,255,255,0.06);
+}
 .newsletter-form {
     display: flex;
     gap: 0.5rem;
@@ -500,6 +526,17 @@ footer a:hover {
         box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
     nav ul.open {
+        display: flex;
+    }
+
+    /* Ensure .nav-links open state is also handled */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+    }
+    .nav-links.open {
         display: flex;
     }
     nav li {

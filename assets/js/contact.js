@@ -1,7 +1,7 @@
 // Hamburger menu toggle
 document.querySelector('.hamburger')?.addEventListener('click', function() {
-    const navList = document.querySelector('nav .nav-links');
-    if (navList) navList.classList.toggle('open');
+    const nav = document.querySelector('nav');
+    if (nav) nav.classList.toggle('open');
     this.classList.toggle('open');
     // update aria-expanded for accessibility
     const expanded = this.classList.contains('open');
@@ -11,14 +11,27 @@ document.querySelector('.hamburger')?.addEventListener('click', function() {
 // Close mobile menu when a nav link is clicked
 document.querySelectorAll('nav .nav-links a').forEach(link => {
     link.addEventListener('click', function() {
-        const navList = document.querySelector('nav .nav-links');
+        const nav = document.querySelector('nav');
         const hamburger = document.querySelector('.hamburger');
-        if (navList && navList.classList.contains('open')) navList.classList.remove('open');
+        if (nav && nav.classList.contains('open')) nav.classList.remove('open');
         if (hamburger && hamburger.classList.contains('open')) {
             hamburger.classList.remove('open');
             hamburger.setAttribute('aria-expanded', 'false');
         }
     });
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(e) {
+    const nav = document.querySelector('nav');
+    const hamburger = document.querySelector('.hamburger');
+    if (nav && nav.classList.contains('open')) {
+        if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+            nav.classList.remove('open');
+            hamburger.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
+        }
+    }
 });
 
 // Back to top button
